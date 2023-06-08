@@ -21,9 +21,11 @@ public class BallContoller : MonoBehaviour
         _rigidbody2D.AddForce(force.normalized * speed);
     }                           //normalized ne demek?
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.transform.CompareTag("Dusman"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }
